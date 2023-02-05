@@ -203,8 +203,6 @@ print('apple'.index('p')) # ValueError : substring not found
 
 - 딕셔너리 메서드
 
-![](Python 주간평가 정리 _assets/2023-02-05-20-20-24-스크린샷 2023-02-05 오후 6.43.15.png)
-
 ![](Python%20주간평가%20정리%20_assets/2023-02-05-20-20-24-스크린샷%202023-02-05%20오후%206.43.15.png)
 
 ## <<교재 6은 관통pjt입니다.>>
@@ -213,7 +211,7 @@ print('apple'.index('p')) # ValueError : substring not found
 
 - 객체 비교
 
-![image-20230205203216813](Python 주간평가 정리 _assets/image-20230205203216813-5601399.png)
+![](Python 주간평가 정리 _assets/image-20230205203216813-5601399.png)
 
 - 클래스 변수와 인스턴스 변수
 
@@ -333,3 +331,55 @@ hand_bag.put("텀블러")
 ![image-20230205212350717](Python 주간평가 정리 _assets/image-20230205212350717.png)
 
 -> getter 는 호출되는 열쇠 기능, setter 는 안의 내용을 바꿀 수 있음.(또한 주관적 나의 생각)
+
+- 간단한 클래스 예시
+
+~~~python
+class Overwatch:
+    name = "감시기지 지브롤터"
+    hero_count = 0
+
+    def __init__(self, name, skill, ulti):
+        self.name = name
+        self.skill = skill
+        self.ulti = ulti
+        Overwatch.hero_count += 1
+    
+    def showInfo(self): # 인스턴스 메서드
+        return (self.name, self.skill, self.ulti)
+    
+    @classmethod  # 클래스 메서드
+    def map(cls):
+        return f'{cls.name}에 오신 것을 환영합니다.'
+
+    @staticmethod  # 스태틱 메서드
+    def hi():
+        return '안녕~!'
+
+
+hero1 = Overwatch('Reinhardt', '돌진', '대지분쇄')  # 인스턴스 생성
+hero2 = Overwatch('Genji', '질풍참', '용검')
+hero3 = Overwatch('Mercy', '부활', '발키리')
+
+# 클래스 변수
+print(Overwatch.hero_count)  # 3
+
+# 인스턴스 메서드
+print(hero1.showInfo())  # ('Reinhardt', '돌진', '대지분쇄')
+print(hero2.showInfo())  # ('Genji', '질풍참', '용검')
+print(hero3.showInfo())  # ('Mercy', '부활', '발키리')
+
+# 클래스 메서드
+print(Overwatch.map())  # 감시기지 지브롤터에 오신 것을 환영합니다.
+
+# 스태틱 메서드 - 인스턴스
+print(hero1.hi())  # 안녕~!
+print(hero2.hi())  # 안녕~!
+print(hero3.hi())  # 안녕~!
+
+# 스태틱 메서드 - 클래스
+print(Overwatch.hi())  # 안녕~!
+~~~
+
+![2023-02-05-20-20-24-스크린샷 2023-02-05 오후 6.43.15](Python 주간평가 정리 _assets/2023-02-05-20-20-24-스크린샷 2023-02-05 오후 6.43.15.png)
+
